@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class enemySpawning : MonoBehaviour
 {
+
     public int maxEnemyHealth = 40;
     public int enemyDamage = 30;
     public float enemySpeed = 1.2f;
@@ -38,6 +39,7 @@ public class enemySpawning : MonoBehaviour
     }
     IEnumerator SpawnEnemy()
     {
+        player.transform.position = new Vector3(0f, 0f, 0f);
         zombieCountMax = 5 + 2 * currentWave;
         for (int i = 0; i < zombieCountMax; i++)
         {
@@ -72,7 +74,7 @@ public class enemySpawning : MonoBehaviour
         //Debug.Log(maxEnemyHealth + " "+ enemyDamage + " " + enemySpeed);
         yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
         yield return new WaitForSeconds(0.3f);
-        if (currentWave == 2) SceneManager.LoadScene(2);
+        if (currentWave == 50) SceneManager.LoadScene(2);
         else
         {
             winChoiceUI.SetActive(true);
