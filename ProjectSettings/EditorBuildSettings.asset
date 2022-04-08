@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/main menu.unity
+    guid: b704d3b06cc8d5d4581722a16629646c
+  - enabled: 1
+    path: Assets/zombiegame.unity
+    guid: c7352e122913a2c4fadd3f1f7aa6c6e2
+  - enabled: 1
+    path: Assets/gameWin.unity
+    guid: 16015db956fe5114c9d91a8ee4a7b3af
+  - enabled: 1
+    path: Assets/gameLose.unity
+    guid: 2bb8923e7753b2b4c93d346543efbd51
+  m_configObjects: {}
