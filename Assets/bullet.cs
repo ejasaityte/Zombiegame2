@@ -5,10 +5,13 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     int damage=10;
+    //private AudioSource shootingSound;
 
     void Awake()
     {
-        Destroy(gameObject, 0.5f);
+        //shootingSound = GetComponent<AudioSource>();
+        //shootingSound.Play();
+        Destroy(gameObject, 0.2f);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

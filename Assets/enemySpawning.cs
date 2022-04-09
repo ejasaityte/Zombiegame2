@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class enemySpawning : MonoBehaviour
 {
-
+    private AudioSource waveWinSound;
     public int maxEnemyHealth = 40;
     public int enemyDamage = 30;
     public float enemySpeed = 1.2f;
     private GameObject winChoiceUI;
+    private GameObject waveStart;
     public int currentWave = 1;
     public GameObject enemy;
     public GameObject player;
@@ -30,16 +31,22 @@ public class enemySpawning : MonoBehaviour
 
     void Start()
     {
+        waveWinSound = GetComponent<AudioSource>();
         player = GameObject.Find("player");
         shoot = player.GetComponent<shooting>();
         move = player.GetComponent<movement>();
         winChoiceUI = GameObject.Find("WinChoice");
         winChoiceUI.SetActive(false);
+        waveStart = GameObject.Find("waveStart");
+        waveStart.SetActive(false);
         StartCoroutine(SpawnEnemy());
     }
     IEnumerator SpawnEnemy()
     {
         player.transform.position = new Vector3(0f, 0f, 0f);
+        waveStart.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        waveStart.SetActive(false);
         zombieCountMax = 5 + 2 * currentWave;
         for (int i = 0; i < zombieCountMax; i++)
         {
@@ -73,10 +80,11 @@ public class enemySpawning : MonoBehaviour
         }
         //Debug.Log(maxEnemyHealth + " "+ enemyDamage + " " + enemySpeed);
         yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.4f);
         if (currentWave == 50) SceneManager.LoadScene(2);
         else
         {
+            waveWinSound.Play();
             winChoiceUI.SetActive(true);
             generate();
             Time.timeScale = 0;
@@ -104,7 +112,7 @@ public class enemySpawning : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int rewardN = Random.Range(1, 7);
-            while ((rewardN==1)&&(shoot.shootingSkill==45))
+            while (((rewardN==1)&&(shoot.shootingSkill==45))||((rewardN == 3) && (maxEnemyHealth == 10)))
             {
                 rewardN = Random.Range(1, 7);
             }
