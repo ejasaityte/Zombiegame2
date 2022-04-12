@@ -37,7 +37,6 @@ public class buttonClick3 : MonoBehaviour
 		{
 			shootScript.shootingSkill += rarityIndex;
 			if (shootScript.shootingSkill > 45) shootScript.shootingSkill = 45;
-			Debug.Log(shootScript.shootingSkill);
 		}
 		else if (reward.Contains("Max"))
 		{
@@ -45,8 +44,8 @@ public class buttonClick3 : MonoBehaviour
 		}
 		else if (reward.Contains("less"))
 		{
-			spawner.maxEnemyHealth -= rarityIndex * 5;
-			Debug.Log(spawner.maxEnemyHealth);
+			spawner.maxEnemyHealth -= rarityIndex;
+			if (spawner.maxEnemyHealth < 10) spawner.maxEnemyHealth = 10;
 		}
 		else if (reward.Contains("full"))
 		{
@@ -55,17 +54,16 @@ public class buttonClick3 : MonoBehaviour
 		else if (reward.Contains("attack"))
 		{
 			spawner.enemyDamage -= rarityIndex;
-			Debug.Log(spawner.enemyDamage);
+			if (spawner.enemyDamage < 1) spawner.enemyDamage = 1;
 		}
 		else if (reward.Contains("Movement"))
 		{
 			moveScript.movementSpeed += 0.05f * rarityIndex;
-			Debug.Log(moveScript.movementSpeed);
 		}
 		else
 		{
 			spawner.enemySpeed -= 0.05f * rarityIndex;
-			Debug.Log(spawner.enemySpeed);
+			if (spawner.enemySpeed < 0.1f) spawner.enemySpeed = 0.1f;
 		}
 
 		Time.timeScale = 1;

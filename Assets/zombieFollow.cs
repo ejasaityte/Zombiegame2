@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class zombieFollow : MonoBehaviour
 {
-    private AudioSource attackSound;
+    public AudioSource attackHit, attackMiss;
     public Transform target;
     public float speed = 1.2f;
     private SpriteRenderer renderer;
@@ -12,7 +12,6 @@ public class zombieFollow : MonoBehaviour
     public int damage = 30;
     void Start()
     {
-        attackSound = GetComponent<AudioSource>();
         renderer = GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
@@ -32,20 +31,22 @@ public class zombieFollow : MonoBehaviour
         }
         else
         {
-            if(runningFlash==0) StartCoroutine(Flash(distance));
+            if(runningFlash==0) StartCoroutine(Flash());
         }
 
     }
-    IEnumerator Flash(float distance)
+    IEnumerator Flash()
     {
         runningFlash++;
         renderer.color = new Color(1f, 1f, 1f, 1f);
-        yield return new WaitForSeconds(0.8f);
-        attackSound.Play();
+        yield return new WaitForSeconds(0.5f);
+        float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= 0.3)
         {
+            attackHit.Play();
             target.GetComponent<playerHealth>().AdjustCurrentHealth(damage);
         }
+        else attackMiss.Play();
         renderer.color = new Color(0.7270476f, 0.9056604f, 0.6365255f, 1f);
         yield return new WaitForSeconds(1f);
         runningFlash--;

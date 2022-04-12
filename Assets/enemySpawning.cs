@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class enemySpawning : MonoBehaviour
 {
+    public bool load;
     private AudioSource waveWinSound;
     public int maxEnemyHealth = 40;
     public int enemyDamage = 30;
@@ -31,6 +32,7 @@ public class enemySpawning : MonoBehaviour
 
     void Start()
     {
+        load = StartGame.load; 
         waveWinSound = GetComponent<AudioSource>();
         player = GameObject.Find("player");
         shoot = player.GetComponent<shooting>();
@@ -39,10 +41,12 @@ public class enemySpawning : MonoBehaviour
         winChoiceUI.SetActive(false);
         waveStart = GameObject.Find("waveStart");
         waveStart.SetActive(false);
+        if (load) loadSave();
         StartCoroutine(SpawnEnemy());
     }
     IEnumerator SpawnEnemy()
     {
+        autosave();
         player.transform.position = new Vector3(0f, 0f, 0f);
         waveStart.SetActive(true);
         yield return new WaitForSeconds(1f);
@@ -159,5 +163,38 @@ public class enemySpawning : MonoBehaviour
                     break;
             }
         }
+    }
+
+    void autosave()
+    {
+        PlayerPrefs.SetInt("currentWave", currentWave);
+        PlayerPrefs.SetInt("maxEnemyHealth", maxEnemyHealth);
+        PlayerPrefs.SetInt("enemyDamage", enemyDamage);
+        PlayerPrefs.SetFloat("enemySpeed", enemySpeed);
+        PlayerPrefs.SetFloat("movementSpeed", move.movementSpeed);
+        PlayerPrefs.SetInt("curHealth", player.GetComponent<playerHealth>().curHealth);
+        PlayerPrefs.SetInt("maxHealth", player.GetComponent<playerHealth>().maxHealth);
+        PlayerPrefs.SetInt("shootingSkill", shoot.shootingSkill);
+    }
+
+    void loadSave()
+    {
+        currentWave = PlayerPrefs.GetInt("currentWave");
+        //Debug.Log(currentWave);
+        maxEnemyHealth = PlayerPrefs.GetInt("maxEnemyHealth");
+        //Debug.Log(maxEnemyHealth);
+        enemyDamage = PlayerPrefs.GetInt("enemyDamage");
+        //Debug.Log(enemyDamage); 
+        move.movementSpeed = PlayerPrefs.GetFloat("movementSpeed");
+        //Debug.Log(move.movementSpeed); 
+        player.GetComponent<playerHealth>().curHealth = PlayerPrefs.GetInt("curHealth");
+        //Debug.Log(player.GetComponent<playerHealth>().curHealth); 
+        player.GetComponent<playerHealth>().maxHealth = PlayerPrefs.GetInt("maxHealth");
+        //Debug.Log(player.GetComponent<playerHealth>().maxHealth); 
+        enemySpeed = PlayerPrefs.GetFloat("enemySpeed");
+        //Debug.Log(enemySpeed); 
+        shoot.shootingSkill = PlayerPrefs.GetInt("shootingSkill");
+        //Debug.Log(shoot.shootingSkill);
+        load = false;
     }
 }

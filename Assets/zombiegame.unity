@@ -678,11 +678,11 @@ RectTransform:
   m_Children:
   - {fileID: 274284402}
   m_Father: {fileID: 1950608408}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -109.58}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 260, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &457921123
@@ -810,6 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4463491b4c3051b498b9634a2413bea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  load: 0
   maxEnemyHealth: 40
   enemyDamage: 30
   enemySpeed: 1.2
@@ -1110,7 +1111,7 @@ GameObject:
   - component: {fileID: 735091599}
   - component: {fileID: 735091598}
   m_Layer: 5
-  m_Name: SaveGame
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1155,7 +1156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save Game
+  m_text: Exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 558078568e8b2f4478fe15ca39604050, type: 2}
   m_sharedMaterial: {fileID: 2528095732182173017, guid: 558078568e8b2f4478fe15ca39604050,
@@ -1246,7 +1247,7 @@ GameObject:
   - component: {fileID: 924675703}
   - component: {fileID: 924675702}
   m_Layer: 5
-  m_Name: SaveGameButton
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1265,11 +1266,11 @@ RectTransform:
   m_Children:
   - {fileID: 735091597}
   m_Father: {fileID: 1950608408}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 52.27}
+  m_AnchoredPosition: {x: 0, y: -110}
   m_SizeDelta: {x: 260, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924675702
@@ -1315,7 +1316,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 924675703}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1950608412}
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+        m_MethodName: quitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &924675703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37578,7 +37591,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 879d0beef8d775e4c856720ff6d955b1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.311
-  m_Pitch: 0.75
+  m_Pitch: 0.85
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -41436,6 +41449,7 @@ GameObject:
   - component: {fileID: 1950608410}
   - component: {fileID: 1950608409}
   - component: {fileID: 1950608411}
+  - component: {fileID: 1950608412}
   m_Layer: 5
   m_Name: pausePanel
   m_TagString: Untagged
@@ -41455,8 +41469,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 952559098}
-  - {fileID: 924675701}
   - {fileID: 457921122}
+  - {fileID: 924675701}
   m_Father: {fileID: 246757846}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41513,6 +41527,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4af4ea0f7270ea2419b4190911d5e136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1950608412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950608407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97f41470019ab64192e76f103ccfa2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!850595691 &2041395203

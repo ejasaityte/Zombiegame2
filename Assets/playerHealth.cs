@@ -9,7 +9,7 @@ public class playerHealth : MonoBehaviour
     public int maxHealth = 300;
     public void AdjustCurrentHealth(int adj)
     {
-        if (curHealth - adj < 0)
+        if (curHealth - adj <= 0)
         {
             curHealth = 0;
             SceneManager.LoadScene(3);
