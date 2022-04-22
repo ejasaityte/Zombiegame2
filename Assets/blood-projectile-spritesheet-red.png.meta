@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -256,6 +257,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      blood-projectile-spritesheet-red_2: 1462796290653345820
+      blood-projectile-spritesheet-red_1: -3015957392701679937
+      blood-projectile-spritesheet-red_4: 8012295093161012668
+      blood-projectile-spritesheet-red_0: -2866012858998170856
+      blood-projectile-spritesheet-red_5: -6817238293494833774
+      blood-projectile-spritesheet-red_3: -8398009881616118452
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

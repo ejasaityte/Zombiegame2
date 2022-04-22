@@ -51,6 +51,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -340,6 +341,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Button Accept: 21300004
+      Talk Cursor: 21300006
+      Panel White: 21300000
+      Button Left: 21300012
+      Button Down: 21300010
+      Panel Black: 21300002
+      Button Back: 21300016
+      Button Up: 21300008
+      Button Right: 21300014
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

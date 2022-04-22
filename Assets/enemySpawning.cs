@@ -41,7 +41,10 @@ public class enemySpawning : MonoBehaviour
         winChoiceUI.SetActive(false);
         waveStart = GameObject.Find("waveStart");
         waveStart.SetActive(false);
-        if (load) loadSave();
+        if (load)
+        {
+            loadSave();
+        }
         StartCoroutine(SpawnEnemy());
     }
     IEnumerator SpawnEnemy()
@@ -80,12 +83,23 @@ public class enemySpawning : MonoBehaviour
             newEnemy.GetComponent<health>().curHealth = maxEnemyHealth;
             newEnemy.GetComponent<zombieFollow>().damage = enemyDamage;
             newEnemy.GetComponent<zombieFollow>().speed = enemySpeed;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(1f-0.012f*currentWave);
         }
         //Debug.Log(maxEnemyHealth + " "+ enemyDamage + " " + enemySpeed);
         yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
         yield return new WaitForSeconds(0.4f);
-        if (currentWave == 50) SceneManager.LoadScene(2);
+        if (currentWave == 50)
+        {
+            PlayerPrefs.SetInt("currentWave", 1);
+            PlayerPrefs.SetInt("maxEnemyHealth", 40);
+            PlayerPrefs.SetInt("enemyDamage", 30);
+            PlayerPrefs.SetFloat("enemySpeed", 1.2f);
+            PlayerPrefs.SetFloat("movementSpeed", 1f);
+            PlayerPrefs.SetInt("curHealth", 300);
+            PlayerPrefs.SetInt("maxHealth", 300);
+            PlayerPrefs.SetInt("shootingSkill", 0);
+            SceneManager.LoadScene(2);
+        }
         else
         {
             waveWinSound.Play();
@@ -152,7 +166,7 @@ public class enemySpawning : MonoBehaviour
                     rarities[i].color = rarityColours[index];
                     break;
                 case 6:
-                    texts[i].text = "Movement speed increased +" + (index + 1)*0.05 + " (Current: " + move.movementSpeed +")";
+                    texts[i].text = "Movement speed increased +" + (index + 1)*0.025 + " (Current: " + move.movementSpeed +")";
                     rarities[i].text = rarity[index];
                     rarities[i].color = rarityColours[index];
                     break;

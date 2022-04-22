@@ -120,6 +120,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -892,6 +893,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Wall 3: 21300054
+      Water 6: 21300058
+      Water 7: 21300060
+      Soil 2: 21300010
+      Wall 1: 21300044
+      Soil 0: 21300006
+      Gress 2: 21300004
+      Soil 4: 21300020
+      Water 0: 21300036
+      Gress 6: 21300024
+      Soil 3: 21300018
+      Gress 1: 21300002
+      Gress 8: 21300028
+      Wall 4: 21300056
+      Soil 7: 21300032
+      Soil 1: 21300008
+      Gress 3: 21300012
+      Gress 0: 21300000
+      Gress 4: 21300014
+      Gress 5: 21300016
+      Water 4: 21300050
+      Water 8: 21300062
+      Soil 6: 21300030
+      Water 3: 21300048
+      Wall 0: 21300042
+      Water 1: 21300038
+      Soil 5: 21300022
+      Water 5: 21300052
+      Soil 8: 21300034
+      Water 2: 21300040
+      Gress 7: 21300026
+      Wall 2: 21300046
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

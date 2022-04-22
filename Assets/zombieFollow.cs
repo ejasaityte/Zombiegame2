@@ -39,7 +39,7 @@ public class zombieFollow : MonoBehaviour
     {
         runningFlash++;
         renderer.color = new Color(1f, 1f, 1f, 1f);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.35f);
         float distance = Vector3.Distance(target.position, transform.position);
         if (distance <= 0.3)
         {

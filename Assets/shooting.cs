@@ -17,7 +17,7 @@ public class shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((Input.GetButtonDown("Fire1"))&&(Time.timeScale!=0))
+        if(((Input.GetButtonDown("Fire1")||Input.GetButtonDown("Jump"))) &&(Time.timeScale!=0))
         {
             bulletSound.Play();
             Shoot();

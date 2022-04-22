@@ -58,7 +58,7 @@ public class buttonClick : MonoBehaviour
 		}
 		else if (reward.Contains("Movement"))
 		{
-			moveScript.movementSpeed += 0.05f * rarityIndex;
+			moveScript.movementSpeed += 0.025f * rarityIndex;
 		}
 		else
 		{
