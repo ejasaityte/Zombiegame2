@@ -37,7 +37,13 @@ public class shooting : MonoBehaviour
         rotation *= Quaternion.Euler(0, 0, 90);
 
         //creates new bullet at firepoint
-        GameObject bullet = Instantiate(bulletSprite, firePoint.position, Quaternion.Euler(rotation.eulerAngles + spread));
+        GameObject bullet = bulletPool.SharedInstance.getBulletFromPool();
+        if(bullet!=null)
+        {
+            bullet.transform.position = firePoint.position;
+            bullet.transform.rotation = Quaternion.Euler(rotation.eulerAngles + spread);
+            bullet.SetActive(true);
+        }
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(bullet.transform.right * bulletForce, ForceMode2D.Impulse);
     }

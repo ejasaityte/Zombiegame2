@@ -1666,6 +1666,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 357751623446728342, guid: 5133f2ec56b6170458366a923157f385,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1319044695483900028, guid: c7677019734580948a1bb853c852c6fc,
+        type: 3}
+    - target: {fileID: 357751623446728342, guid: 5133f2ec56b6170458366a923157f385,
+        type: 3}
+      propertyPath: poolCounter
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 611159816429735822, guid: 5133f2ec56b6170458366a923157f385,
         type: 3}
       propertyPath: curHealth
