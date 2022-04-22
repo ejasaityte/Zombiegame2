@@ -12,13 +12,15 @@ public class shooting : MonoBehaviour
 
     void Start()
     {
+        //gets the bullet shoot sound
         bulletSound = GetComponent<AudioSource>();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if(((Input.GetButtonDown("Fire1")||Input.GetButtonDown("Jump"))) &&(Time.timeScale!=0))
         {
+            //if player presses their mouse button or space when the game isn't paused, a bullet is fired
             bulletSound.Play();
             Shoot();
         }
@@ -26,10 +28,15 @@ public class shooting : MonoBehaviour
 
     void Shoot()
     {
+        //random angle for bullet spread, can be 90 degrees at most with maximum shooting skill
         int randomVal = Random.Range(45+shootingSkill, 135-shootingSkill);
         Vector3 spread = new Vector3(0, 0, randomVal-90);
+
+        //gets rotation of point where bullet will come from, rotates it to offset initial sprite position
         var rotation = firePoint.rotation;
         rotation *= Quaternion.Euler(0, 0, 90);
+
+        //creates new bullet at firepoint
         GameObject bullet = Instantiate(bulletSprite, firePoint.position, Quaternion.Euler(rotation.eulerAngles + spread));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(bullet.transform.right * bulletForce, ForceMode2D.Impulse);

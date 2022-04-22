@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
+    //keeps track of player's current and maximum health
     public int curHealth = 300;
     public int maxHealth = 300;
     public void AdjustCurrentHealth(int adj)
     {
+        //if player has reached 0 health, it unsets all saved attributes and goes to game loss screen
         if (curHealth - adj <= 0)
         {
             curHealth = 0;

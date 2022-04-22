@@ -11,6 +11,8 @@ public class bullet : MonoBehaviour
     {
         //shootingSound = GetComponent<AudioSource>();
         //shootingSound.Play();
+
+        //destroy's the bullet's object after short delay
         Destroy(gameObject, 0.2f);
     }
 
@@ -18,6 +20,7 @@ public class bullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            //if the bullet collides with an enemy, subtract damage from the enemy's health and destroy bullet
             collision.gameObject.GetComponent<health>().AdjustCurrentHealth(damage);
             Destroy(gameObject);
         }

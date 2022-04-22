@@ -8,18 +8,22 @@ public class waveNumLabel : MonoBehaviour
     private int waveNum = 1;
     public enemySpawning spawner;
     public Text txt;
-    // Start is called before the first frame update
     void Awake()
     {
+        //finds the game controller
         GameObject manager = GameObject.Find("enemyManager");
         spawner = manager.GetComponent<enemySpawning>();
+
+        //gets the text component of the wave number label
         txt = GetComponent<Text>();
+
+        //starting text should read Wave: 1
         txt.text = "Wave: "+waveNum;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
+        //periodically gets the current wave number from the spawning script
         waveNum = spawner.currentWave;
         txt.text = "Wave: " + waveNum;
     }
