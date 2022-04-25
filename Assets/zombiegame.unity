@@ -1675,7 +1675,7 @@ PrefabInstance:
     - target: {fileID: 357751623446728342, guid: 5133f2ec56b6170458366a923157f385,
         type: 3}
       propertyPath: poolCounter
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 611159816429735822, guid: 5133f2ec56b6170458366a923157f385,
         type: 3}

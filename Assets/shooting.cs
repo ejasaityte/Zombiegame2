@@ -9,6 +9,7 @@ public class shooting : MonoBehaviour
     public int shootingSkill = 0;
     private AudioSource bulletSound;
     public float bulletForce = 10f;
+    private bool bulletShot = false;
 
     void Start()
     {
@@ -21,9 +22,17 @@ public class shooting : MonoBehaviour
         if(((Input.GetButtonDown("Fire1")||Input.GetButtonDown("Jump"))) &&(Time.timeScale!=0))
         {
             //if player presses their mouse button or space when the game isn't paused, a bullet is fired
-            bulletSound.Play();
-            Shoot();
+            if(!bulletShot) StartCoroutine(shootBulletDelayed());
         }
+    }
+
+    IEnumerator shootBulletDelayed()
+    {
+        bulletShot = true;
+        bulletSound.Play();
+        Shoot();
+        yield return new WaitForSeconds(0.25f);
+        bulletShot = false;
     }
 
     void Shoot()
