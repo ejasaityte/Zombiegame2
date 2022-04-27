@@ -12,7 +12,7 @@ public class enemySpawning : MonoBehaviour
     private AudioSource waveWinSound;
     public int maxEnemyHealth = 40;
     public int enemyDamage = 30;
-    public float enemySpeed = 1.2f;
+    public float enemySpeed = 1.4f;
     private GameObject winChoiceUI;
     private GameObject waveStart;
     public int currentWave = 1;
@@ -225,21 +225,21 @@ public class enemySpawning : MonoBehaviour
     void loadSave()
     {
         //loads all saved attributes
-        currentWave = PlayerPrefs.GetInt("currentWave");
+        currentWave = PlayerPrefs.GetInt("currentWave", 1);
         //Debug.Log(currentWave);
-        maxEnemyHealth = PlayerPrefs.GetInt("maxEnemyHealth");
+        maxEnemyHealth = PlayerPrefs.GetInt("maxEnemyHealth", 40);
         //Debug.Log(maxEnemyHealth);
-        enemyDamage = PlayerPrefs.GetInt("enemyDamage");
+        enemyDamage = PlayerPrefs.GetInt("enemyDamage", 30);
         //Debug.Log(enemyDamage); 
-        move.movementSpeed = PlayerPrefs.GetFloat("movementSpeed");
+        move.movementSpeed = PlayerPrefs.GetFloat("movementSpeed", 1f);
         //Debug.Log(move.movementSpeed); 
-        player.GetComponent<playerHealth>().curHealth = PlayerPrefs.GetInt("curHealth");
+        player.GetComponent<playerHealth>().curHealth = PlayerPrefs.GetInt("curHealth", 300);
         //Debug.Log(player.GetComponent<playerHealth>().curHealth); 
-        player.GetComponent<playerHealth>().maxHealth = PlayerPrefs.GetInt("maxHealth");
+        player.GetComponent<playerHealth>().maxHealth = PlayerPrefs.GetInt("maxHealth", 300);
         //Debug.Log(player.GetComponent<playerHealth>().maxHealth); 
-        enemySpeed = PlayerPrefs.GetFloat("enemySpeed");
+        enemySpeed = PlayerPrefs.GetFloat("enemySpeed",1.4f);
         //Debug.Log(enemySpeed); 
-        shoot.shootingSkill = PlayerPrefs.GetInt("shootingSkill");
+        shoot.shootingSkill = PlayerPrefs.GetInt("shootingSkill", 0);
         //Debug.Log(shoot.shootingSkill);
 
         load = false;
