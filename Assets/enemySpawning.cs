@@ -129,6 +129,7 @@ public class enemySpawning : MonoBehaviour
             generate();
             //pauses game to allow player to choose
             Time.timeScale = 0;
+            yield return new WaitForSeconds(0.1f);
             currentWave++;
             StartCoroutine(SpawnEnemy());
         }
